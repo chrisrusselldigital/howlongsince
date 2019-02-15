@@ -1,1 +1,1 @@
-Practice with JavaScript
+Various practice exercises with Javascript
