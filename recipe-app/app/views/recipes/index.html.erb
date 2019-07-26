@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recipe</th>
+      <th>Ingredients</th>
+      <th>Method</th>
+      <th>Date created</th>
+      <th colspan=2>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+          <td><%= link_to recipe.name, recipe %></td>
+        <td><%= recipe.ingredients %></td>
+        <td><%= recipe.method %></td>
+        <td><%= recipe.created_at.strftime("%d %b %Y") %></td>
+        <td><%= link_to 'Edit recipe', edit_recipe_path(recipe) %></td>
+        <td><%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path %>

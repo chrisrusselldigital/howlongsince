@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @recipe.name %>
+</h1>
+
+<p>
+  <strong>Created:</strong>
+  <%= @recipe.created_at.strftime("%d %b %Y") %>
+  </p>
+
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @recipe.ingredients %>
+</p>
+
+
+<p>
+  <strong>Method:</strong>
+  <%= @recipe.method %>
+</p>
+
+
+<p>
+  <strong>Photo:</strong>
+  <% if @recipe.has_photo? %>
+  <%= image_tag @recipe.photo_path %>
+  <% else %>
+  No photo.
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit recipe', edit_recipe_path(@recipe) %> |
+<%= link_to 'Home', recipes_path %>
